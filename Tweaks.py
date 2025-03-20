@@ -7,4 +7,6 @@ def random_ascii():
 
 for i in range(0, 201):
     print('Hello, World! - ' + str(i) + ' - ' + random_ascii())
+    with open(f"random_file_{t.strftime('%Y%m%d_%H%M%S')}.txt", "a") as file:
+        file.write(f"Hello, World! - {i} - {random_ascii()}\n")
     t.sleep(0.02)
