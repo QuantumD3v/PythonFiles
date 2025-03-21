@@ -1,12 +1,17 @@
 import time as t
 import random
+import os
 
 def random_ascii():
-    result = ''.join(chr(random.randint(33, 126)) for _ in range(50))
-    return result
+    return ''.join(chr(random.randint(33, 126)) for _ in range(50))
 
-for i in range(0, 201):
-    print('Hello, World! - ' + str(i) + ' - ' + random_ascii())
-    with open(f"random_file_{t.strftime('%Y%m%d_%H%M%S')}.txt", "a") as file:
-        file.write(f"Hello, World! - {i} - {random_ascii()}\n")
+filename = "random_output.txt"
+
+for i in range(201):
+    line = f"Hello, World! - {i} - {random_ascii()}\n"
+    print(line, end="")
+
+    with open(filename, "a") as file:
+        file.write(line)
+
     t.sleep(0.02)
